@@ -1,11 +1,11 @@
-Claro. Aquí tienes un ejemplo de `README.md` bien estructurado para tu proyecto de predicción de mantenimiento de automóviles con análisis exploratorio, entrenamiento de modelos y generación de reportes PDF.
-
 ---
 
 ```markdown
 # 🚗 Predicción de Mantenimiento de Automóviles con Machine Learning
 
-Este proyecto utiliza aprendizaje automático para predecir el mantenimiento de automóviles. Integra un flujo completo de **preprocesamiento de datos**, **entrenamiento de modelos**, **evaluación estadística** y **generación de informes automáticos en PDF**.
+Este proyecto utiliza aprendizaje automático para predecir el mantenimiento de automóviles.
+Integra un flujo completo de **preprocesamiento de datos**, **entrenamiento de modelos**,
+**evaluación estadística** y **generación de informes automáticos en PDF**.
 
 ---
 
@@ -98,17 +98,5 @@ El informe incluye:
 | ANOVA           | Comparación de medias entre varios grupos         |
 | Diebold-Mariano | Comparación de errores entre modelos de regresión |
 
----
 
-## 📬 Contacto
-
-¿Dudas o sugerencias? ¡No dudes en abrir un issue o contribuir!
-
----
-
-```
-
----
-
-¿Quieres que lo personalice con tu nombre, universidad o incluir capturas de los PDFs generados? Puedo ayudarte a mejorarlo aún más para presentación o entrega académica.
 ```
