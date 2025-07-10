@@ -1,14 +1,5 @@
 ---
 
-```markdown
-# 🚗 Predicción de Mantenimiento de Automóviles con Machine Learning
-
-Este proyecto utiliza aprendizaje automático para predecir el mantenimiento de automóviles.
-Integra un flujo completo de **preprocesamiento de datos**, **entrenamiento de modelos**,
-**evaluación estadística** y **generación de informes automáticos en PDF**.
-
----
-
 ## 🧠 Características del Proyecto
 
 - 🔍 **Análisis exploratorio automatizado** (estadísticas, correlaciones, gráficos)
