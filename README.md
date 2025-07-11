@@ -84,10 +84,7 @@ El informe incluye:
 
 | Prueba          | Objetivo                                          |
 | --------------- | ------------------------------------------------- |
-| Shapiro         | Normalidad de variables numéricas                 |
-| VIF             | Multicolinealidad entre predictores               |
-| T-test          | Comparación de medias entre dos grupos            |
-| Chi²            | Asociación entre variables categóricas            |
+| MAE, RMSE, R2   | Metricas de los modelos creados
 | ANOVA           | Comparación de medias entre varios grupos         |
 | Diebold-Mariano | Comparación de errores entre modelos de regresión |
 
