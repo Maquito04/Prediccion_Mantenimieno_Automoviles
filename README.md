@@ -5,7 +5,7 @@
 ## 🧠 Características del Proyecto
 
 - 🔍 **Análisis exploratorio automatizado** (estadísticas, correlaciones, gráficos)
-- 📊 **Pruebas estadísticas** (Shapiro, ANOVA, t-test, Chi², VIF, Diebold-Mariano)
+- 📊 **Pruebas estadísticas** (MAE, RMSE, R2 ,ANOVA ,Diebold-Mariano)
 - 🤖 **Modelos entrenados**:
   - Regresión: Random Forest, Gradient Boosting, Decision Tree
   - Clasificación (opcional): Random Forest, Gradient Boosting, Logistic Regression
