@@ -26,7 +26,7 @@ def explore_dataset(df, resultados,target_column,tipo, X_test, y_test, col_num, 
     write_line(f"valores duplicados: {df.duplicated().sum()}")
 
     def generar_heatmap_correlacion(df, ruta_imagen="./imagenes/correlacion.png"):
-        plt.figure(figsize=(15, 15))
+        plt.figure(figsize=(10, 6))
         matriz_corr = df.corr(numeric_only=True)
         sns.heatmap(matriz_corr, annot=True, fmt=".2f", cmap="coolwarm", square=True)
         plt.tight_layout()
@@ -38,7 +38,7 @@ def explore_dataset(df, resultados,target_column,tipo, X_test, y_test, col_num, 
     write_line("Matriz de correlación")
     pdf.set_font("Courier", style="",size=10)
     generar_heatmap_correlacion(df)
-    pdf.image("./imagenes/correlacion.png", w=100)
+    pdf.image("./imagenes/correlacion.png", w=150)
     
     def listar_columnas_por_tipo(df, tipos, titulo):
         write_line("-" * 80)
@@ -65,19 +65,6 @@ def explore_dataset(df, resultados,target_column,tipo, X_test, y_test, col_num, 
     pdf.image("./imagenes/variables_numericas.png", w=180)
     write_line("Distribuciones de Variables Categóricas")
     pdf.image("./imagenes/variables_categoricas.png", w=180)
-
-
-    write_line("=" * 80)
-    pdf.set_font("Courier", style="B",size=10)
-    write_line("Datos Estadísticos")
-    pdf.set_font("Courier", style="",size=10)
-    
-    df_num = df.select_dtypes(include=["int64", "float64"]).dropna()
-    write_line(calcular_correlaciones(df_num, target_column))
-    write_line(test_normalidad(df_num))
-    write_line(calcular_vif(df_num.drop(columns=[target_column])).to_string())
-    write_line(prueba_ttest(df, target_column, "cilindrada"))
-    write_line(prueba_chi2(df, "transmision", "cilindros"))
 
     write_line("=" * 80)
     pdf.set_font("Courier", style="B",size=10)
@@ -114,12 +101,12 @@ def explore_dataset(df, resultados,target_column,tipo, X_test, y_test, col_num, 
     })
 
     def exportar_matriz_como_imagen(df, ruta_imagen="./imagenes/matriz_dm.png"):
-        fig, ax = plt.subplots(figsize=(10, 4))
+        fig, ax = plt.subplots(figsize=(15,6))
         ax.axis('off')
         tabla = ax.table(cellText=df.values, colLabels=df.columns, rowLabels=df.index, loc='center', cellLoc='center')
         tabla.auto_set_font_size(False)
-        tabla.set_fontsize(10)
-        tabla.scale(0.8, 1.0)
+        tabla.set_fontsize(9)
+        tabla.scale(0.7, 1.2)
         plt.savefig(ruta_imagen, dpi=300)
         plt.close()
 
@@ -134,21 +121,21 @@ def explore_dataset(df, resultados,target_column,tipo, X_test, y_test, col_num, 
     write_line("Distribución de errores (Gradient Boosting)")
     pdf.set_font("Courier", style="", size=10)
     graficar_distribucion_residuales(y_test, y_pred_modeloGB, "./imagenes/residuales_GB.png")
-    pdf.image("./imagenes/residuales_GB.png", w=180)
+    pdf.image("./imagenes/residuales_GB.png", w=100)
 
     write_line("=" * 80)
     pdf.set_font("Courier", style="B", size=10)
     write_line("Distribución de errores (Random Forest)")
     pdf.set_font("Courier", style="", size=10)
     graficar_distribucion_residuales(y_test, y_pred_modeloRF, "./imagenes/residuales_RF.png")
-    pdf.image("./imagenes/residuales_RF.png", w=180)
+    pdf.image("./imagenes/residuales_RF.png", w=100)
 
     write_line("=" * 80)
     pdf.set_font("Courier", style="B", size=10)
     write_line("Distribución de errores (Decision Tree)")
     pdf.set_font("Courier", style="", size=10)
     graficar_distribucion_residuales(y_test, y_pred_modeloDT, "./imagenes/residuales_RF.png")
-    pdf.image("./imagenes/residuales_RF.png", w=180)
+    pdf.image("./imagenes/residuales_RF.png", w=100)
 
     pdf.output(output_file)
 
