@@ -63,8 +63,6 @@ python main.py
 streamlit run app.py
 ```
 
-3. Se generará automáticamente el archivo `explorar.pdf` con todos los resultados.
-
 ---
 
 ## 📊 Reporte PDF
