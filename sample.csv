@@ -1,2 +1,2 @@
-mpg_ciudad,clase,mpg_combinado,cilindros,cilindrada,conduccion,tipo_combustible,mpg_carretera,marca,modelo,transmision,ano
-22,SUV,25,4,2.0,AWD,Gasolina,30,Honda,CR-V,Automática,2020
+mpg_ciudad,clase,cilindros,cilindrada,conduccion,tipo_combustible,mpg_carretera,marca,modelo,transmision,ano
+22,SUV,4,2.0,AWD,Gasolina,30,Honda,CR-V,Automática,2020

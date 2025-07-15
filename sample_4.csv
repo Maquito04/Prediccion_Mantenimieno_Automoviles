@@ -1,6 +1,6 @@
-mpg_ciudad,clase,mpg_combinado,cilindros,cilindrada,conduccion,tipo_combustible,mpg_carretera,marca,modelo,transmision,ano
-22,SUV,25,4,2.0,AWD,Gasolina,30,Honda,CR-V,Automática,2020
-18,Pickup,20,6,3.5,4WD,Gasolina,24,Ford,F-150,Automática,2019
-25,Sedan,28,4,1.8,FWD,Gasolina,34,Toyota,Corolla,Manual,2021
-15,Deportivo,17,8,5.0,RWD,Gasolina,21,Chevrolet,Corvette,Automática,2018
-30,Hatchback,33,4,1.6,FWD,Híbrido,38,Hyundai,Ioniq,Automática,2022
+mpg_ciudad,clase,cilindros,cilindrada,conduccion,tipo_combustible,mpg_carretera,marca,modelo,transmision,ano
+22,SUV,4,2.0,AWD,Gasolina,30,Honda,CR-V,Automática,2020
+18,Pickup,6,3.5,4WD,Gasolina,24,Ford,F-150,Automática,2019
+25,Sedan,4,1.8,FWD,Gasolina,34,Toyota,Corolla,Manual,2021
+15,Deportivo,8,5.0,RWD,Gasolina,21,Chevrolet,Corvette,Automática,2018
+30,Hatchback,4,1.6,FWD,Híbrido,38,Hyundai,Ioniq,Automática,2022

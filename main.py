@@ -18,6 +18,7 @@ print("Dataframe limpio")
 df_procesado = preprocesador.manejarFaltantes(df_limpio, columnas_numericas, columnas_categoricas)
 print("Dataframe procesado")
 df_final = preprocesador.encodificar_categoricas(df_procesado, columnas_categoricas)
+joblib.dump(preprocesador, "./modelos/preprocesador.pkl")
 print("Dataframe codificado")
 
 #Empezar entrenamiento
@@ -27,6 +28,8 @@ print("="*80)
 target_column="mpg_combinado"
 predictor = MantenimientoPredictor()
 X, y = predictor.preparar_caracteristica_objetivo(df_final,target_column)
+joblib.dump(X.columns.tolist(), "./modelos/Regresion/columnas_entrenamiento.pkl")
+print("Columnas del entrenamiento guardadas.")
 
 if X is not None and y is not None:
     if y.dtype == 'object' or y.nunique() < 20:

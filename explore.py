@@ -59,6 +59,7 @@ def explore_dataset(df, resultados,target_column,tipo, X_test, y_test, col_num, 
     listar_columnas_por_tipo(df, ["int64", "float64"], "Columnas Numéricas:")
     listar_columnas_por_tipo(df, ["object", "category", "bool"], "Columnas Categóricas:")
 
+    pdf.add_page()
     graficar_variables(df, col_num, col_cat)
     pdf.set_font("Courier", style="B", size=10)
     write_line("Distribuciones de Variables Numéricas")
@@ -110,32 +111,52 @@ def explore_dataset(df, resultados,target_column,tipo, X_test, y_test, col_num, 
         plt.savefig(ruta_imagen, dpi=300)
         plt.close()
 
-    exportar_matriz_como_imagen(matriz_dm)
-    pdf.image("./imagenes/matriz_dm.png", w=180)
-
-    anova_result = limpiar_texto(prueba_anova(df, "mpg_combinado", "conduccion"))
-    write_line("Prueba ANOVA:\n" + anova_result)
+    u_lr = theils_u(y_test, y_pred_modeloGB)
+    u_rf = theils_u(y_test, y_pred_modeloRF)
+    u_dt = theils_u(y_test, y_pred_modeloDT)
     
+    pdf.add_page()
+    write_line("=" * 80)
+    pdf.set_font("Courier", style="B", size=14)
+    write_line("PRUEBAS")
+    pdf.set_font("Courier", style="", size=10)
+    write_line("=" * 80)
+    pdf.set_font("Courier", style="B", size=10)
+    write_line("Pruebas de U de Theil")
+    pdf.set_font("Courier", style="", size=10)
+    write_line(f"U de Theil - Gradient Boosting: {u_lr}")
+    write_line(f"U de Theil - Random Forest: {u_rf}")
+    write_line(f"U de Theil - Decision Tree: {u_dt}")    
+
+    # exportar_matriz_como_imagen(matriz_dm)
+    # pdf.image("./imagenes/matriz_dm.png", w=180)
+
+    pdf.set_font("Courier", style="B", size=10)
+    write_line("Prueba de ANOVA")
+    pdf.set_font("Courier", style="", size=10)
+    anova_result = limpiar_texto(prueba_anova(df, "mpg_combinado", "conduccion"))
+    write_line(anova_result)
+   
     write_line("=" * 80)
     pdf.set_font("Courier", style="B", size=10)
     write_line("Distribución de errores (Gradient Boosting)")
     pdf.set_font("Courier", style="", size=10)
     graficar_distribucion_residuales(y_test, y_pred_modeloGB, "./imagenes/residuales_GB.png")
-    pdf.image("./imagenes/residuales_GB.png", w=100)
+    pdf.image("./imagenes/residuales_GB.png", w=80)
 
     write_line("=" * 80)
     pdf.set_font("Courier", style="B", size=10)
     write_line("Distribución de errores (Random Forest)")
     pdf.set_font("Courier", style="", size=10)
     graficar_distribucion_residuales(y_test, y_pred_modeloRF, "./imagenes/residuales_RF.png")
-    pdf.image("./imagenes/residuales_RF.png", w=100)
+    pdf.image("./imagenes/residuales_RF.png", w=80)
 
     write_line("=" * 80)
     pdf.set_font("Courier", style="B", size=10)
     write_line("Distribución de errores (Decision Tree)")
     pdf.set_font("Courier", style="", size=10)
     graficar_distribucion_residuales(y_test, y_pred_modeloDT, "./imagenes/residuales_RF.png")
-    pdf.image("./imagenes/residuales_RF.png", w=100)
+    pdf.image("./imagenes/residuales_RF.png", w=80)
 
     pdf.output(output_file)
 

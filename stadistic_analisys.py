@@ -100,7 +100,23 @@ def prueba_anova(df, col_cont, col_cat):
         return f"ANOVA F = {stat:.3f}, p = {p:.4f} ({'significativo' if p < 0.05 else 'no significativo'})"
     except Exception as e:
         return f"❌ Error en ANOVA: {e}"
-    
+
+def theils_u(y_true, y_pred):
+    try:
+        y_true = np.array(y_true)
+        y_pred = np.array(y_pred)
+        
+        numerador = np.sqrt(np.mean((y_true - y_pred) ** 2))
+        denominador = np.sqrt(np.mean(y_true ** 2)) + np.sqrt(np.mean(y_pred ** 2))
+        
+        if denominador == 0:
+            return "⚠️ División por cero en denominador"
+        
+        return numerador / denominador
+    except Exception as e:
+        return f"❌ Error: {e}"
+
+
 def graficar_variables(df, numeric_cols, categorical_cols, ruta_num="./imagenes/variables_numericas.png", ruta_cat="./imagenes/variables_categoricas.png"):
     os.makedirs("./imagenes", exist_ok=True)
 
