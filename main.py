@@ -1,7 +1,6 @@
 import pandas as pd
 import numpy as np
 import warnings
-import explore
 import joblib
 from preprocesador import DataPreProcessor 
 from trainer import MantenimientoPredictor
@@ -9,7 +8,7 @@ from stadistic_analisys import *
 warnings.filterwarnings('ignore')
 
 print("Leyendo csv ...")
-df = pd.read_csv("car_data.csv")
+df = pd.read_csv("./data/car_data.csv")
 
 preprocesador = DataPreProcessor()
 # print("Preprocesador hecho")
@@ -33,13 +32,21 @@ print("Columnas del entrenamiento guardadas.")
 
 if X is not None and y is not None:
     if y.dtype == 'object' or y.nunique() < 20:
-        modelo, resultados, tipo, X_test, y_test = predictor.entrenar_modelo_clasificacion(X, y)
+        resultados, tipo, X_test, y_test = predictor.entrenar_modelo_clasificacion(X, y)
     else:
-        modelo, resultados, tipo, X_test, y_test = predictor.entrenar_modelo_regresion(X, y)
+        resultados, tipo, X_test, y_test = predictor.entrenar_modelo_regresion(X, y)
 
-print("Creando pdf ...")
-explore.explore_dataset(df,resultados,target_column,tipo, X_test, y_test,columnas_numericas,columnas_categoricas,"explorar.pdf")
-print("PDF creado con datos del csv")
+diccionario_data = {
+    "target_column": target_column,
+    "tipo": tipo,
+    "X_test": X_test,
+    "y_test": y_test,
+    "columnas_numericas": columnas_numericas,
+    "columnas_categoricas": columnas_categoricas
+}
+
+joblib.dump(diccionario_data, "./modelos/Regresion/diccionario_data.pkl")
+print("Diccionario de datos guardado.")
 
 
 

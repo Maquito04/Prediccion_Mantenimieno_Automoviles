@@ -79,11 +79,7 @@ class MantenimientoPredictor:
             }
             joblib.dump(model, f"./modelos/Regresion/modelo_Regresion_{name}.pkl")
             joblib.dump(results, f"./resultados/Regresion/resultado_Regresion_{name}.pkl")
-
-        mejor_modelo_nombre = min(results.keys(), key=lambda k: results[k]['promedioError'])
-        mejor_modelo = results[mejor_modelo_nombre]['modelo']
-        self.models['regresion'] = mejor_modelo
-        return mejor_modelo, results, "regresion", X_test, y_test
+        return  results, "regresion", X_test, y_test
     
     def predecir_nueva_data(self, new_data):
         if 'clasificacion' in self.models:
