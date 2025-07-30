@@ -52,6 +52,7 @@ def diccionario(idioma):
             "pruebas_u_theil": "Pruebas de U de Theil",
             "prueba_anova": "Prueba de ANOVA",
             "distribucion_errores": "Distribución de errores",
+            "descargar_pdf": "📥 Descargar PDF",
         },
         "English": {
             "titulo": "🔮 Vehicle Maintenance Prediction",
@@ -105,6 +106,7 @@ def diccionario(idioma):
             "pruebas_u_theil": "Theil's U Tests",
             "prueba_anova": "ANOVA Test",
             "distribucion_errores": "Error Distribution",
+            "descargar_pdf": "📥 Download PDF",
         },
         "Français": {
             "titulo": "🔮 Prédiction de l'entretien des véhicules",
@@ -158,6 +160,7 @@ def diccionario(idioma):
             "pruebas_u_theil": "Tests de U de Theil",
             "prueba_anova": "Test ANOVA",
             "distribucion_errores": "Distribution des erreurs",
+            "descargar_pdf": "📥 Télécharger le PDF"
         }
     } 
     return traducciones[idioma]
