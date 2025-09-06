@@ -100,4 +100,6 @@ El informe incluye:
 | U de Theil      | Elección de modelos de regresión                  |
 
 
-```
+## Lugar desplegado
+
+https://prediccion-automoviles.streamlit.app 
